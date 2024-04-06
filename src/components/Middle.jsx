@@ -34,8 +34,8 @@ const Middle = () => {
                   <IoIosRocket className="text-5xl" />
                 </div>
                 <div className="absolute inset-x-0 bottom-0 px-4 py-2  bg-opacity-75 text-center">
-                  <h5 className="text-gray-300 title-font text-base font-medium">Boost</h5>
-                  <p className="text-gray-300 mt-2">Build visibility for yourself</p>
+                  <h5 className="text-gray-300 title-font text-base font-medium">Fast and quick Process</h5>
+                  <p className="text-gray-300 mt-2">A quick process to meet doctor.</p>
                 </div>
               </div>
             </div>
@@ -45,8 +45,8 @@ const Middle = () => {
                   <FiBookOpen className="text-5xl" />
                 </div>
                 <div className="absolute inset-x-0 bottom-0 px-4 py-2  bg-opacity-75 text-center">
-                  <h5 className="text-gray-300 title-font text-base font-medium">Prep</h5>
-                  <p className="text-gray-300 mt-2">Up your interview success rate</p>
+                  <h5 className="text-gray-300 title-font text-base font-medium">Highly Classified</h5>
+                  <p className="text-gray-300 mt-2">Meet the professionalists</p>
                 </div>
               </div>
             </div>
@@ -57,7 +57,7 @@ const Middle = () => {
                 </div>
                 <div className="absolute inset-x-0 bottom-0 px-4 py-2  bg-opacity-75 text-center">
                   <h5 className="text-gray-300 title-font text-base font-medium">Learn</h5>
-                  <p className="text-gray-300 mt-2">Upskill to get ahead</p>
+                  <p className="text-gray-300 mt-2">Learn and get knowledge</p>
                 </div>
               </div>
             </div>
@@ -68,7 +68,7 @@ const Middle = () => {
                 </div>
                 <div className="absolute inset-x-0 bottom-0 px-4 py-2  bg-opacity-75 text-center">
                   <h5 className="text-gray-300 title-font text-base font-medium">Network</h5>
-                  <p className="text-gray-300 mt-2">Grow with peers and mentors</p>
+                  <p className="text-gray-300 mt-2">Vast network of our peers</p>
                 </div>
               </div>
             </div>

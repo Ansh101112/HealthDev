@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import JobCard from '../Jobcard/JobCard';
 import { db } from '../Firebase/FirebaseConfig.js';
 import { collection, query, getDocs, orderBy, Timestamp } from 'firebase/firestore';
+import Display from '../components/Display';
 
 const Home = () => {
   const [jobs, setJobs] = useState([]);
@@ -91,6 +92,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
+      <Display></Display>
       <Search fetchJobsCustom={fetchJobsCustom} />
 {customSearch && (
   <button onClick={fetchJobs} className='bg-blue-500 px-4 py-1 rounded-md text-white mt-2 mr-2 ml-auto text-sm'>Clear Filters</button>

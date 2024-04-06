@@ -2,57 +2,57 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import { db } from '../Firebase/FirebaseConfig.js';
 import { collection, addDoc } from 'firebase/firestore';
-import {toast} from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
-const JobModal = () => {
-  const [jobDetails, setJobDetails] = useState({
-    title: '',
-    type: '',
+const DoctorPosting = () => {
+  const [doctorDetails, setDoctorDetails] = useState({
+    name: '',
+    specialization: '',
     experience: '',
     location: '',
-    link: '',
-    skills: [], // Changed from skill to skills
-    company: '',
+    contact: '',
+    qualifications: [], // Changed from skills to qualifications
+    hospital: '',
     postedOn: ''
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setJobDetails({
-      ...jobDetails,
+    setDoctorDetails({
+      ...doctorDetails,
       [name]: value
     });
   };
 
   const handleSubmit = async () => {
     try {
-      const docRef = await addDoc(collection(db, 'jobs'), jobDetails);
+      const docRef = await addDoc(collection(db, 'doctors'), doctorDetails);
       console.log('Document written with ID: ', docRef.id);
-      toast.success('Job posted successfully!');
-      alert("Job posted successfully!");
+      toast.success('Doctor posting successful!');
+      alert("Doctor posting successful!");
       // Clear the form after submission
-      setJobDetails({
-        title: '',
-        type: '',
+      setDoctorDetails({
+        name: '',
+        specialization: '',
         experience: '',
         location: '',
-        link: '',
-        skills: [],
-        company: '',
+        contact: '',
+        qualifications: [],
+        hospital: '',
         postedOn: ''
       });
     } catch (error) {
       console.error('Error adding document: ', error);
-      toast.error('Error posting job. Please try again.');
+      toast.error('Error posting doctor. Please try again.');
       alert("Try again after sometime.");
     }
   };
 
-  const handleSkillChange = (e) => {
-    const skills = e.target.value.split(',').map(skill => skill.trim());
-    setJobDetails({
-      ...jobDetails,
-      skills: skills // Changed from skill to skills
+  const handleQualificationChange = (e) => {
+    const qualifications = e.target.value.split(',').map(qualification => qualification.trim());
+    setDoctorDetails({
+      ...doctorDetails,
+      qualifications: qualifications // Changed from skills to qualifications
     });
   };
 
@@ -62,52 +62,47 @@ const JobModal = () => {
       <div className="min-h-screen p-6 flex items-center justify-center bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-100 via-yellow-300 to-yellow-500">
         <div className="container max-w-screen-lg mx-auto">
           <div>
-            <h2 className="font-semibold text-xl text-gray-600">Post Job Here</h2>
+            <h2 className="font-semibold text-xl text-gray-600">Post Doctor Here</h2>
             <p className="text-gray-500 mb-6">Please fill out all the fields.</p>
 
             <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
               <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                {/* Job details form */}
+                {/* Doctor details form */}
                 <div className="lg:col-span-2">
-                  <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">                    
-                    <div className="lg:col-span-2">
                   <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                     <div>
-                      <label htmlFor="title">Job Title</label>
-                      <input type="text" name="title" id="title" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={jobDetails.title} onChange={handleChange} required />
+                      <label htmlFor="name">Doctor's Name</label>
+                      <input type="text" name="name" id="name" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={doctorDetails.name} onChange={handleChange} required />
                     </div>
                     <div>
-                      <label htmlFor="type">Job Type</label>
-                      <input type="text" name="type" id="type" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={jobDetails.type} onChange={handleChange} required />
+                      <label htmlFor="specialization">Specialization</label>
+                      <input type="text" name="specialization" id="specialization" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={doctorDetails.specialization} onChange={handleChange} required />
                     </div>
                     <div>
                       <label htmlFor="experience">Experience</label>
-                      <input type="text" name="experience" id="experience" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={jobDetails.experience} onChange={handleChange} required />
+                      <input type="text" name="experience" id="experience" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={doctorDetails.experience} onChange={handleChange} required />
                     </div>
                     <div>
                       <label htmlFor="location">Location</label>
-                      <input type="text" name="location" id="location" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={jobDetails.location} onChange={handleChange} required />
+                      <input type="text" name="location" id="location" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={doctorDetails.location} onChange={handleChange} required />
                     </div>
                     <div>
-                      <label htmlFor="link">Job Link</label>
-                      <input type="text" name="link" id="link" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={jobDetails.link} onChange={handleChange} required />
+                      <label htmlFor="contact">Contact</label>
+                      <input type="text" name="contact" id="contact" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={doctorDetails.contact} onChange={handleChange} required />
                     </div>
                     <div>
-                      <label htmlFor="company">Company</label>
-                      <input type="text" name="company" id="company" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={jobDetails.company} onChange={handleChange} required />
+                      <label htmlFor="hospital">Hospital</label>
+                      <input type="text" name="hospital" id="hospital" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={doctorDetails.hospital} onChange={handleChange} required />
                     </div>
                     <div>
-                      <label htmlFor="skills">Skills (comma separated)</label>
-                      <input type="text" name="skills" id="skills" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={jobDetails.skills.join(', ')} onChange={handleSkillChange} required />
+                      <label htmlFor="qualifications">Qualifications (comma separated)</label>
+                      <input type="text" name="qualifications" id="qualifications" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={doctorDetails.qualifications.join(', ')} onChange={handleQualificationChange} required />
                     </div>
                     {/* Remaining input fields */}
                     <div>
                       <label htmlFor="postedOn">Apply By</label>
-                      <input type="date" name="postedOn" id="postedOn" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={jobDetails.postedOn} onChange={handleChange} required />
+                      <input type="date" name="postedOn" id="postedOn" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={doctorDetails.postedOn} onChange={handleChange} required />
                     </div>
-                    </div>
-                    </div>
-
                   </div>
                 </div>
               </div>
@@ -122,4 +117,4 @@ const JobModal = () => {
   );
 };
 
-export default JobModal;
+export default DoctorPosting;

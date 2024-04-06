@@ -40,10 +40,10 @@ const Navbar = () => {
     <div className="bg-white shadow-md rounded-lg py-2 px-4 flex justify-between items-center relative">
       <div className="flex items-center">
         <img
-          src="https://media.foundit.in/trex/public/theme_3/src/assets/images/header/companyLogo.svg"
+          src="https://www.logolynx.com/images/logolynx/cd/cd9ef5ca37218c58c36b8c155bfb6329.jpeg"
           alt="Company Logo"
-          width="130px"
-          height="25px"
+          width="80px"
+          height="35px"
           className="mr-4 p-4 cursor-pointer"
           borderRadius={'55'}
           onClick={() => { navigate('/') }}
@@ -57,7 +57,7 @@ const Navbar = () => {
           _hover={{ borderBottom: "2px solid #6e00be" }}
           className="mr-4"
         >
-          Boost
+          Appointments
         </Text>
         <Text
           fontSize="lg"
@@ -68,7 +68,7 @@ const Navbar = () => {
           _hover={{ borderBottom: "2px solid #6e00be" }}
           className="mr-4"
         >
-          Prep
+          Medical Records
         </Text>
         <Text
           fontSize="lg"
@@ -79,7 +79,7 @@ const Navbar = () => {
           _hover={{ borderBottom: "2px solid #6e00be" }}
           className="mr-4"
         >
-          Learn
+          Prescriptions
         </Text>
       </div>
       {user ? (
