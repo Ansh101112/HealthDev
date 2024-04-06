@@ -17,9 +17,9 @@ const Home = () => {
     try {
       setCustomSearch(false);
       setLoading(true); // Set loading to true when fetching starts
-      const tempjobs = [];
-      const jobsref = collection(db, "jobs");
-      const q = query(jobsref, orderBy('postedOn', "desc"));
+      const tempJobs = [];
+      const jobsRef = collection(db, "doctors"); // Change collection name to "doctors"
+      const q = query(jobsRef, orderBy('postedOn', "desc"));
       const result = await getDocs(q);
       result.forEach((job) => {
         const jobData = job.data();
@@ -27,14 +27,14 @@ const Home = () => {
         if (jobData.postedOn && jobData.postedOn instanceof Timestamp) {
           postedOn = jobData.postedOn.toDate();
         }
-        tempjobs.push({
+        tempJobs.push({
           ...jobData,
           id: job.id,
           postedOn: postedOn
         });
       });
-      console.log("Number of jobs fetched:", tempjobs.length);
-      setJobs(tempjobs);
+      console.log("Number of jobs fetched:", tempJobs.length);
+      setJobs(tempJobs);
     } catch (error) {
       console.error("Error fetching jobs:", error);
     } finally {
@@ -50,13 +50,13 @@ const Home = () => {
     try {
       setCustomSearch(true);
       setLoading(true); // Set loading to true when fetching starts
-      const tempjobs = [];
-      const jobsref = collection(db, "jobs");
-      let q = query(jobsref, orderBy('postedOn', "desc"));
+      const tempJobs = [];
+      const jobsRef = collection(db, "doctors"); // Change collection name to "doctors"
+      let q = query(jobsRef, orderBy('postedOn', "desc"));
   
       // Apply filter criteria if any is selected
       if (jobCriteria.type || jobCriteria.title || jobCriteria.experience || jobCriteria.location) {
-        q = query(jobsref,
+        q = query(jobsRef,
           where("type", "==", jobCriteria.type || ""),
           where("title", "==", jobCriteria.title || ""),
           where("experience", "==", jobCriteria.experience || ""),
@@ -65,7 +65,7 @@ const Home = () => {
         );
       } else {
         // If no filter criteria is selected, fetch all jobs
-        q = query(jobsref, orderBy('postedOn', "desc"));
+        q = query(jobsRef, orderBy('postedOn', "desc"));
       }
   
       const result = await getDocs(q);
@@ -75,13 +75,13 @@ const Home = () => {
         if (jobData.postedOn && jobData.postedOn instanceof Timestamp) {
           postedOn = jobData.postedOn.toDate();
         }
-        tempjobs.push({
+        tempJobs.push({
           ...jobData,
           id: job.id,
           postedOn: postedOn
         });
       });
-      setJobs(tempjobs);
+      setJobs(tempJobs);
     } catch (error) {
       console.error("Error fetching custom jobs:", error);
     } finally {
@@ -92,31 +92,27 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <Display></Display>
+      <Display />
       <Search fetchJobsCustom={fetchJobsCustom} />
-{customSearch && (
-  <button onClick={fetchJobs} className='bg-blue-500 px-4 py-1 rounded-md text-white mt-2 mr-2 ml-auto text-sm'>Clear Filters</button>
-)}
-
-      
+      {customSearch && (
+        <button onClick={fetchJobs} className='bg-blue-500 px-4 py-1 rounded-md text-white mt-2 mr-2 ml-auto text-sm'>Clear Filters</button>
+      )}
       {/* Conditional rendering of loading spinner */}
       {loading ? (
         <div className="flex flex-col justify-center items-center h-56">
-  <div className="loader ease-linear rounded-full border-8 border-t-8 border-zinc-800 h-14 w-14">
-    <span className="absolute top-full left-1/2 transform -translate-x-1/2 text-center text-gray-700 font-semibold">Getting Your Jobs</span>
-  </div>
-</div>
-
+          <div className="loader ease-linear rounded-full border-8 border-t-8 border-zinc-800 h-14 w-14">
+            <span className="absolute top-full left-1/2 transform -translate-x-1/2 text-center text-gray-700 font-semibold">Getting Your Jobs</span>
+          </div>
+        </div>
       ) : (
         <div className="overflow-y-auto max-h-56">
           {jobs.length > 0 && (
-            jobs.map(jobdata => (
-              <JobCard key={jobdata.id} {...jobdata} />
+            jobs.map(jobData => (
+              <JobCard key={jobData.id} {...jobData} />
             ))
           )}
         </div>
       )}
-
       <Middle />
       <Footer />
     </>

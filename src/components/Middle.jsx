@@ -4,22 +4,14 @@ import { FiBookOpen } from "react-icons/fi";
 import { FaGraduationCap } from "react-icons/fa";
 import { FaNetworkWired } from "react-icons/fa";
 import Slider from './Slider';
-import { IoMdPerson } from "react-icons/io";
-import { FaCalculator } from "react-icons/fa";
-import { IoBag } from "react-icons/io5";
-import { FaUniversity } from 'react-icons/fa';
-import { FaRegCalendarCheck } from "react-icons/fa";
-import { GoHome } from "react-icons/go";
-import { LuAlertTriangle } from "react-icons/lu";
-import { IoGlobeSharp } from "react-icons/io5";
-import { FaCode } from "react-icons/fa";
-import { FaPaintBrush } from "react-icons/fa";
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Middle = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className='mb-0 rounded-2xl flex items-center nowrap'>
-        <h1 className='p-8 px-12 font-semibold text-m whitespace-nowrap'>Say <span className='text-blue-500'>Found it </span> every step of the way</h1>
+        <h1 className='p-8 px-12 font-semibold text-m whitespace-nowrap'>Say <span className='text-blue-500'>HealthDEV </span> every step of the way</h1>
         <hr className="my-0 mx-4 w-3/4 border-t border-blue-200" />
       </div>
 
@@ -80,113 +72,46 @@ const Middle = () => {
 {/* Popular categories start herer...... */}
 
 <section className='mb-0'>
-  <p className='font-bold px-9 py-7'>Popular Categories</p>
+  <p className='font-bold px-9 py-7'>Our Testimonials</p>
 </section>
-<section class="text-gray-600 body-font py-0">
-  <div class="grid grid-cols-2 lg:grid-cols-6 gap-4 p-8">
-    {/* First set of cards */}
-    <div class="p-2">
-      <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-        <FaUniversity className="w-6 h-6 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 text-gray-500" />
-        <div class="flex-grow">
-          <h5 class="text-gray-900">Banking</h5>
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-wrap -m-4">
+      <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
+        <div class="h-full text-center">
+          <img alt="testimonial" class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="https://images.unsplash.com/photo-1609902726285-00668009f004?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDQzfHxoYXBweXxlbnwwfHx8fDE2MTU4OTMxMDU&ixlib=rb-1.2.1&q=80&w=2000" />
+          <p class="leading-relaxed">HealthDev has exceeded my expectations in every way possible. From the moment I signed up, I've been impressed by the seamless experience and high-quality care provided. The doctors are knowledgeable and compassionate, and the support team is always there to assist with any questions or concerns. I highly recommend HealthDev to anyone looking for a reliable healthcare solution.</p>
+          <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+          <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">HOLDEN CAULFIELD</h2>
+          <p class="text-gray-500">Senior Product Designer</p>
         </div>
       </div>
-    </div>
-    <div class="p-2">
-      <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-        <FaRegCalendarCheck className="w-6 h-6 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 text-gray-500" />
-        <div class="flex-grow">
-          <h5 class="text-gray-900">Event Management</h5>
+      <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
+        <div class="h-full text-center">
+          <img alt="testimonial" class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="https://photoheads.co.uk/wp-content/uploads/2020/05/headshot-with-client-testimonial.jpg" />
+          <p class="leading-relaxed">I can't say enough good things about HealthDev! From the intuitive interface to the prompt customer support, every aspect of the platform is top-notch. Whether it's scheduling appointments, requesting prescription refills, or accessing educational resources, HealthDev makes managing my health a breeze. I'm grateful to have such a reliable and comprehensive healthcare system at my disposal.</p>
+          <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+          <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">ALPER KAMU</h2>
+          <p class="text-gray-500">Teacherr</p>
         </div>
       </div>
-    </div>
-    {/* Second set of cards */}
-    <div class="p-2">
-      <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-        <GoHome className="w-6 h-6 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 text-gray-500" />
-        <div class="flex-grow">
-          <h5 class="text-gray-900">Work From Home</h5>
-        </div>
-      </div>
-    </div>
-    <div class="p-2">
-      <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-        <IoMdPerson className="w-6 h-6 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 text-gray-500" />
-        <div class="flex-grow">
-          <h5 class="text-gray-900">HR</h5>
-        </div>
-      </div>
-    </div>
-    <div class="p-2">
-      <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-        <IoGlobeSharp className="w-6 h-6 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 text-gray-500" />
-        <div class="flex-grow">
-          <h5 class="text-gray-900">IT</h5>
-        </div>
-      </div>
-    </div>
-    <div class="p-2">
-      <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-        <FaCode className="w-6 h-6 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 text-gray-500" />
-        <div class="flex-grow">
-          <h5 class="text-gray-900">SQL</h5>
-        </div>
-      </div>
-    </div>
-    <div class="p-2">
-      <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-        <IoBag className="w-6 h-6 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 text-gray-500" />
-        <div class="flex-grow">
-          <h5 class="text-gray-900">Sales</h5>
-        </div>
-      </div>
-    </div>
-    <div class="p-2">
-      <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-        <FaCode className="w-6 h-6 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 text-gray-500" />
-        <div class="flex-grow">
-          <h5 class="text-gray-900">Oracle</h5>
-        </div>
-      </div>
-    </div>
-    <div class="p-2">
-      <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-        <FaCalculator className="w-6 h-6 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 text-gray-500" />
-        <div class="flex-grow">
-          <h5 class="text-gray-900">Accounting</h5>
-        </div>
-      </div>
-    </div>
-    <div class="p-2">
-      <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-        <FaPaintBrush className="w-6 h-6 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 text-gray-500" />
-        <div class="flex-grow">
-          <h5 class="text-gray-900">Graphic Design</h5>
-        </div>
-      </div>
-    </div>
-    <div class="p-2">
-      <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-        <IoBag className="w-6 h-6 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 text-gray-500" />
-        <div class="flex-grow">
-          <h5 class="text-gray-900">Customer Support</h5>
-        </div>
-      </div>
-    </div>
-    <div class="p-2">
-      <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-        <IoBag className="w-6 h-6 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 text-gray-500" />
-        <div class="flex-grow">
-          <h5 class="text-gray-900">Digital Marketing</h5>
+      <div class="lg:w-1/3 lg:mb-0 p-4">
+        <div class="h-full text-center">
+          <img alt="testimonial" class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="https://th.bing.com/th/id/OIP.f0bSA8u1ezCwqUUecYuiHgHaKL?rs=1&pid=ImgDetMain" />
+          <p class="leading-relaxed">I've been using HealthDev for my chronic condition management, and it has made a world of difference in my life. The platform allows me to track my symptoms, medications, and appointments all in one place, helping me stay organized and proactive about my health. Thanks to HealthDev, I feel more empowered and in control of my healthcare journey.</p>
+          <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+          <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">HENRY LETHAM</h2>
+          <p class="text-gray-500">CTO</p>
         </div>
       </div>
     </div>
   </div>
 </section>
-<div className="flex mt-24 justify-center items-center bg-gray-300 bg-opacity-50 px-4 py-3 rounded text-gray-700 text-lg font-bold">
-  <LuAlertTriangle></LuAlertTriangle><span className='font-bold text-green-400 mr-2'>Beware of Scammers </span> <p> We dont charge any money for job offers.</p><a href="#" className='cursor-pointer'>Know More</a>
-</div>
+
+
+<button onClick={()=>{navigate('/login')}} type="button" class="block mx-auto text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">Get Started Today</button>
+
+
 
     </>
   );

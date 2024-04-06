@@ -1,4 +1,5 @@
 import React from "react";
+import Contact from "./components/Contact";
 import {Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./Pages/Home";
@@ -8,6 +9,7 @@ import Signup from "./Pages/Signup";
 import JobModal from "./Pages/JobModal";
 import Dashboard from "./Pages/Dashboard";
 import UserDashboard from "./Pages/UserDashboard";
+import MedicalRecords from "./components/MedicalRecords";
 
 const App = () => {
   const postJobs = async (jobDetails) => {
@@ -23,7 +25,9 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/job-posting" element={<JobModal postJobs={postJobs} />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/medical-records" element={<MedicalRecords></MedicalRecords>} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/admin/dashboard" element={<Dashboard name='Ansh' />} />
         <Route path="/user/dashboard" element={<UserDashboard name='User' />} />
         <Route path="/employerlogin" element={<Login />} />

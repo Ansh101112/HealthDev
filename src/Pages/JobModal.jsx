@@ -11,7 +11,7 @@ const DoctorPosting = () => {
     experience: '',
     location: '',
     contact: '',
-    qualifications: [], // Changed from skills to qualifications
+    qualifications: [],
     hospital: '',
     postedOn: ''
   });
@@ -26,7 +26,7 @@ const DoctorPosting = () => {
 
   const handleSubmit = async () => {
     try {
-      const docRef = await addDoc(collection(db, 'doctors'), doctorDetails);
+      const docRef = await addDoc(collection(db, 'doctors'), doctorDetails); // Change 'doctors' to 'users'
       console.log('Document written with ID: ', docRef.id);
       toast.success('Doctor posting successful!');
       alert("Doctor posting successful!");
@@ -39,7 +39,8 @@ const DoctorPosting = () => {
         contact: '',
         qualifications: [],
         hospital: '',
-        postedOn: ''
+        postedOn: '',
+        link: ''
       });
     } catch (error) {
       console.error('Error adding document: ', error);
@@ -52,7 +53,7 @@ const DoctorPosting = () => {
     const qualifications = e.target.value.split(',').map(qualification => qualification.trim());
     setDoctorDetails({
       ...doctorDetails,
-      qualifications: qualifications // Changed from skills to qualifications
+      qualifications: qualifications
     });
   };
 
@@ -74,6 +75,7 @@ const DoctorPosting = () => {
                       <label htmlFor="name">Doctor's Name</label>
                       <input type="text" name="name" id="name" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={doctorDetails.name} onChange={handleChange} required />
                     </div>
+                    {/* Remaining input fields */}
                     <div>
                       <label htmlFor="specialization">Specialization</label>
                       <input type="text" name="specialization" id="specialization" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={doctorDetails.specialization} onChange={handleChange} required />
@@ -95,10 +97,13 @@ const DoctorPosting = () => {
                       <input type="text" name="hospital" id="hospital" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={doctorDetails.hospital} onChange={handleChange} required />
                     </div>
                     <div>
+                      <label htmlFor="hospital">Appointment Link</label>
+                      <input type="text" name="link" id="link" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={doctorDetails.link} onChange={handleChange} required />
+                    </div>
+                    <div>
                       <label htmlFor="qualifications">Qualifications (comma separated)</label>
                       <input type="text" name="qualifications" id="qualifications" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={doctorDetails.qualifications.join(', ')} onChange={handleQualificationChange} required />
                     </div>
-                    {/* Remaining input fields */}
                     <div>
                       <label htmlFor="postedOn">Apply By</label>
                       <input type="date" name="postedOn" id="postedOn" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={doctorDetails.postedOn} onChange={handleChange} required />

@@ -3,8 +3,9 @@ import { Text } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../Firebase/FirebaseConfig"; // Importing auth from Firebase
-
+import { auth } from "../Firebase/FirebaseConfig"; // Importing auth from Firebas
+import { Link } from "@chakra-ui/react";
+ 
 const Navbar = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null); // State to track the authenticated user
@@ -56,10 +57,23 @@ const Navbar = () => {
           borderBottom="2px solid transparent"
           _hover={{ borderBottom: "2px solid #6e00be" }}
           className="mr-4"
+          href='/'
         >
-          Appointments
+          Home
         </Text>
-        <Text
+        <Link
+  fontSize="lg"
+  fontWeight="bold"
+  mt="10px"
+  cursor="pointer"
+  borderBottom="2px solid transparent"
+  _hover={{ borderBottom: "2px solid #6e00be" }}
+  className="mr-4"
+  href="/medical-records"
+>
+  Medical Records
+</Link>
+        <Link
           fontSize="lg"
           fontWeight="bold"
           mt="10px"
@@ -67,20 +81,10 @@ const Navbar = () => {
           borderBottom="2px solid transparent"
           _hover={{ borderBottom: "2px solid #6e00be" }}
           className="mr-4"
+          href='/contact'
         >
-          Medical Records
-        </Text>
-        <Text
-          fontSize="lg"
-          fontWeight="bold"
-          mt="10px"
-          cursor="pointer"
-          borderBottom="2px solid transparent"
-          _hover={{ borderBottom: "2px solid #6e00be" }}
-          className="mr-4"
-        >
-          Prescriptions
-        </Text>
+          Contact Us
+        </Link>
       </div>
       {user ? (
         <div>
